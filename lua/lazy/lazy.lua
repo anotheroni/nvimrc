@@ -11,10 +11,11 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-vim.g.mapleader = " " -- the leader key is used in many keymaps, 
+require("lazy").setup({
+  -- Color scheme
+  { "catppuccin/nvim", as = "catppuccin" },
 
-local plugins = {
-    -- plugins go here
-}
+  -- Fuzzy Finder (files, lsp, etc)
+  { 'nvim-telescope/telescope.nvim', branch = '0.1.x', dependencies = { 'nvim-lua/plenary.nvim' } },
 
-require("lazy").setup(plugins, {})
+})
