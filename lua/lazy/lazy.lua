@@ -1,5 +1,6 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not (vim.uv or vim.loop).fs_stat(lazypath) then
+-- Install lazy if not installed
+if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
     "git",
     "clone",
@@ -23,12 +24,26 @@ require("lazy").setup({
     dependencies = { 'nvim-lua/plenary.nvim' }
   },
 
+  --Higlighting and indenting
+  { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+
   -- Comment code
   {
     'terrortylor/nvim-comment',
     config = function()
       require("nvim_comment").setup({ create_mappings = false })
-	end
+    end
+  },
+
+  -- Save and load buffer (a session) automatically for each folder
+  {
+    'rmagatti/auto-session',
+	config = function()
+		  require("auto-session").setup {
+			  log_level = "error",
+			  auto_session_suppress_dirs = { "~/", "~/Downloads" },
+		  }
+	  end
   },
 
   -- Preview markdown live in web browser
@@ -55,7 +70,7 @@ require("lazy").setup({
 
   -- Main LSP Configuration
   {
-   'neovim/nvim-lspconfig',
+    'neovim/nvim-lspconfig',
     dependencies = {
       -- Automatically install LSPs and related tools to stdpath for Neovim
       { 'williamboman/mason.nvim', config = true }, -- NOTE: Must be loaded before dependants
@@ -69,7 +84,7 @@ require("lazy").setup({
       'hrsh7th/cmp-nvim-lsp',
     },
     config = function()
-		      --  This function gets run when an LSP attaches to a particular buffer.
+      --  This function gets run when an LSP attaches to a particular buffer.
       --    That is to say, every time a new file is opened that is associated with
       --    an lsp (for example, opening `main.rs` is associated with `rust_analyzer`) this
       --    function will be executed to configure the current buffer
