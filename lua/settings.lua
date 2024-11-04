@@ -44,6 +44,3 @@ vim.opt.colorcolumn = "80"
 
 -- filetype trigger
 vim.opt.filetype='on'
-
--- Color
---vim.cmd.colorschemes = "catppuccin"
