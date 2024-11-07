@@ -7,6 +7,9 @@ return {
 
 		null_ls.setup({
 			sources = {
+				-- C
+				null_ls.builtins.formatting.clang_format,
+				-- lua
 				null_ls.builtins.formatting.stylua,
 				-- Python
 				null_ls.builtins.formatting.black,
