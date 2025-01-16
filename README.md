@@ -4,6 +4,8 @@ My configuration for Neovim / Nvim using Lazy as package manger
 
 ## Dependencies
 
+For bash LSP: npm
+
 For treesitter: ripgrep
 
 For Python debugging: debugpy (see plugins/debuging.lua)

@@ -126,6 +126,11 @@ return {
 		--  - settings (table): Override the default settings passed when initializing the server.
 		--        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
 		local servers = {
+			bashls = {
+				settings = {
+					filetypes = { "sh", "zsh" },
+				},
+			},
 			clangd = {
 			},
 			-- gopls = {},
@@ -152,6 +157,8 @@ return {
 			'clangd',
 			'clang-format',
 			'codelldb', -- C DAP
+			'shellcheck', -- bash linter
+			'shfmt', -- bash formatting
 			'stylua', -- Used to format Lua code
 		})
 		require('mason-tool-installer').setup {
