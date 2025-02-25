@@ -4,13 +4,17 @@ My configuration for Neovim / Nvim using Lazy as package manger
 
 ## Dependencies
 
+A Nerdfont
+
 For bash LSP: npm
 
-For treesitter: ripgrep
+For treesitter: ripgrep(rg)
 
 For Python debugging: debugpy (see plugins/debuging.lua)
 
 For C LSP: clangd
+
+* :Mason  -- to open package manager
 
 ## Vim commands
 
@@ -37,3 +41,7 @@ To change formating used by clang-format create a .clang-format file in src
 
 To add a vim alias for nvim
   echo "alias vim=\"nvim\"" | tee -a ~/.bashrc
+
+## AI
+
+https://www.joshmedeski.com/posts/ai-in-neovim-neovimconf-2024/
