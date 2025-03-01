@@ -4,22 +4,30 @@ My configuration for Neovim / Nvim using Lazy as package manger
 
 ## Dependencies
 
-A Nerdfont
+* Nerdfont
+  https://www.nerdfonts.com/font-downloads
+  mkdir /usr/share/fonts/nerdfonts
+  unzip Monaspace.zip -d /usr/share/fonts/nerdfonts/Monaspace
+  fc-cache -fv
+  reboot (if font looks weird in terminal)
 
-For bash LSP: npm
+* npm
+  Needed by: Bash LSP, Avante
 
-For treesitter: ripgrep(rg)
+* ripgrep (rg)
+  Needed by: treesitter
 
-For Python debugging: debugpy (see plugins/debuging.lua)
+* debugpy
+  For Python debugging (see plugins/debuging.lua)
 
-For C LSP: clangd
-
-* :Mason  -- to open package manager
+* clangd
+  For C LSP
 
 ## Vim commands
 
 * :w !sudo tee %    -- Save a protected file
 * :reg    -- print content of all registers
+* :Mason  -- to open package manager
 
 # Tmux integration
 
